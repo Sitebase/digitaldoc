@@ -1,0 +1,7 @@
+{
+    "name": "Digital doc",
+    "description": "Digitalize your paper documents",
+    "repository": "https://github.com/sitebase/digitaldoc",
+    "logo": "https://node-js-sample.herokuapp.com/node.png",
+    "keywords": ["pdf", "php", "paper", "document", "scanner"]
+}

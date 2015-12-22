@@ -20,3 +20,8 @@ Some commands to test the API without the need for a user interface:
 ```
 curl --data '<html><body>Hello <strong>world</strong></body></html>' http://localhost:8000/api/test/
 ```
+
+## Deploy
+This makes it possible to deploy this project on your own Heroku instance with a few easy clicks:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
