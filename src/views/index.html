@@ -11,14 +11,17 @@
             <h1>Digital<span>Doc</span></h1>
             <p>Add photos of paper documents and generate one single PDF document.</p>
             <div id="container">
-                <div id="uploader">
-                    <input type="file" id="imgInp" />
-                </div>
                 <div id="items" class="clearfix">
                 </div>
             </div>
 
-            <button id="generate">Generate PDF</button>
+            <div id="footer">
+                <div id="uploader">
+                    <input type="file" id="imgInp" />
+                    <span>Add a file...</span>
+                </div>
+                <button id="generate">Generate PDF</button>
+            </div>
         </div>
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="{{ app.request.basepath }}/js/main.js"></script>

@@ -3,20 +3,56 @@ body {
     text-align: center;
     font-family: 'Lato', sans-serif;
     color: #FFFFFF;
-    padding: 15px;
-    font-size: 16px;
+    padding: 25px 15px;
+    font-size: 20px;
+    line-height: 25px;
 }
 
 h1 {
     font-weight: bold;
+    font-size: 2em;
+    margin-bottom: 25px;
 }
 h1 span {
     font-weight: normal;
 }
+p {
+    margin: 2px 0 13px 0;
+}
 
 #wrapper {
-    margin: 0 auto;
+    margin: 25px auto;
     max-width: 400px;
+}
+
+button, #uploader {
+    color: #56bc8a;
+    background: #fff;
+    border-radius: 2px;
+    font-weight: bold;
+    border: none;
+    font-size: 1em;
+    padding: 5px 15px;
+    float: right;
+    width: 48%;
+    line-height: 30px;
+}
+
+#uploader {
+    position: relative;
+    float: left;
+}
+#uploader input {
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+#uploader span {
+    font-weight: bold;
 }
 
 #items {
@@ -30,8 +66,8 @@ h1 span {
     width: 100%;
     float: left;
     border-radius: 5px;
-    margin: 5px;
     padding: 5px;
+    margin: 5px 0;
     background: rgba(0,0,0,.13);
     position: relative;
 }
@@ -50,15 +86,6 @@ h1 span {
     padding: 0px;
 }
 
-button {
-    color: #56bc8a;
-    background: #fff;
-    border-radius: 2px;
-    font-weight: bold;
-    border: none;
-    font-size: 1em;
-    padding: 5px 15px;
-}
 
 /* helpers */
 .clearfix:after {
