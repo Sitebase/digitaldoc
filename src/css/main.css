@@ -1,7 +1,7 @@
 body {
     background: #56bc8a;
     text-align: center;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', Helvetica, arial, sans-serif;
     color: #FFFFFF;
     padding: 25px 15px;
     font-size: 20px;
@@ -26,12 +26,13 @@ p {
 }
 
 button, #uploader {
+    font-family: 'Lato', Helvetica, arial, sans-serif;
     color: #56bc8a;
     background: #fff;
     border-radius: 2px;
     font-weight: bold;
     border: none;
-    font-size: 1em;
+    font-size: 0.7em;
     padding: 5px 15px;
     float: right;
     width: 48%;
