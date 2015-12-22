@@ -15,8 +15,19 @@ use Ramsey\Uuid\Uuid;
 // create silex application
 $app = new Silex\Application();
 
+$app->register(new Silex\Provider\UrlGeneratorServiceProvider());
+
+// Register Twig provider and define a path for twig templates
+$app->register(new Silex\Provider\TwigServiceProvider(), array(
+    'twig.path' => __DIR__.'/views',
+));
+
 // load composer file so I can use it to extract information
 $project = json_decode(file_get_contents(__DIR__.'/../composer.json'));
+
+$app->get('/', function() use($app) {
+    return $app['twig']->render('index.html');
+})->bind('index');
 
 /**
  * Information endpoint
