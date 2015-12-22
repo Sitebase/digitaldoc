@@ -15,9 +15,10 @@ jQuery(document).ready(function($) {
         var html = $("#items").html();
         apiGenerate(html, function(id) {
 
-            alert(id);
             // open download link in new tab
-            window.open(api + 'download/' + id, '_blank');
+            // window.open(api + 'download/' + id, '_blank');
+            $("#generate, #uploader").hide();
+            $("#download").attr("href", api + 'download/' + id).show();
 
         });
     });

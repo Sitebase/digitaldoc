@@ -38,7 +38,7 @@ p {
     width: 100%;
 }
 
-button, #uploader {
+button, #uploader, .button {
     font-family: 'Lato', Helvetica, arial, sans-serif;
     color: #56bc8a;
     background: #fff;
@@ -50,6 +50,7 @@ button, #uploader {
     float: right;
     width: 48%;
     line-height: 30px;
+    text-decoration: none;
     -webkit-text-size-adjust:none;
 }
 button:disabled {
@@ -71,6 +72,11 @@ button:disabled {
 }
 #uploader span {
     font-weight: bold;
+}
+
+#download {
+    width: 100%;
+    display: none;
 }
 
 #items {
