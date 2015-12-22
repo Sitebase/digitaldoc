@@ -1,5 +1,6 @@
 # Digital Doc
 Small web application to help convert paper documents into digital ones.
+This project is created as final project for my CS50 course that I did via [edx](http://edx.org)
 
 ## Run
 To run this on your computer execute following command:
