@@ -1,7 +1,6 @@
 html, body {
     padding: 0;
     margin: 0;
-    -webkit-text-size-adjust: 100%
 }
 body {
     background: #56bc8a;
@@ -51,6 +50,7 @@ button, #uploader {
     float: right;
     width: 48%;
     line-height: 30px;
+    -webkit-text-size-adjust:none;
 }
 button:disabled {
     opacity: 0.5;
