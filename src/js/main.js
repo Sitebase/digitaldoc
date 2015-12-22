@@ -50,8 +50,12 @@ function renderItems(items) {
     });
 
     // if there are no items render info message
-    if(items.length === 0)
+    if(items.length === 0) {
         elements = "<p>No images added yet</p>";
+        $("#generate").attr('disabled', 'disabled');
+    } else {
+        $("#generate").removeAttr('disabled');
+    }
 
     $('#items').html(elements);
 }

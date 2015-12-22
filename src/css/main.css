@@ -51,6 +51,9 @@ button, #uploader {
     width: 48%;
     line-height: 30px;
 }
+button:disabled {
+    opacity: 0.5;
+}
 
 #uploader {
     position: relative;
