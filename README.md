@@ -2,6 +2,10 @@
 Small web application to help convert paper documents into digital ones.
 This project is created as final project for my CS50 course that I did via [edx](http://edx.org)
 
+## Demo
+
+[View demo](https://digital-doc.herokuapp.com/)
+
 ## Run
 To run this on your computer execute following command:
 
