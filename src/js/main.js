@@ -1,4 +1,4 @@
-var items = ['https://www.arduino.cc/new_home/assets/illu-arduino-UNO.png'];
+var items = [];
 var api = document.location.href + 'api/';
 
 jQuery(document).ready(function($) {
