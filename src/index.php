@@ -1,0 +1,77 @@
+<?php
+require_once __DIR__.'/../vendor/autoload.php';
+require_once 'config.php';
+require_once 'functions.php';
+
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use GuzzleHttp\Client;
+use mikehaertl\wkhtmlto\Pdf;
+use Ramsey\Uuid\Uuid;
+
+$app = new Silex\Application();
+$project = json_decode(file_get_contents(__DIR__.'/../composer.json'));
+$app->get('/api/', function() use ($project) {
+    return new JsonResponse([
+        'name' => $project->name,
+        'version' => $project->version
+    ]);
+});
+
+$app->get('/api/generate/', function() {
+
+    $pdf = new Pdf('test.html');
+    $id = Uuid::uuid4()->toString();
+    $destination = getFile($id, 'pdf');
+
+    if(!$pdf->saveAs($destination)) {
+        return error($pdf->getError());
+    } else {
+        return new JsonResponse([
+            'id' => $id
+        ]);
+    }
+});
+
+$app->post('/api/test/', function(Request $request) {
+
+    // save html source to local document
+    $source = $request->getContent();
+    $sourceFile = getFile(Uuid::uuid4()->toString(), 'html');
+    file_put_contents($sourceFile, $source);
+
+    // generate destination PDF file
+    $id = Uuid::uuid4()->toString();
+    $destination = getFile($id, 'pdf');
+
+    // create PDF file
+    $pdf = new Pdf($sourceFile);
+    if(!$pdf->saveAs($destination)) {
+        return error($pdf->getError());
+    } else {
+        return new JsonResponse([
+            'id' => $id
+        ]);
+    }
+});
+
+$app->get('/api/download/{id}', function($id) {
+    $file = getFile($id, 'pdf');
+
+    if(!file_exists($file))
+        return error("file with is '$id' is not found");
+
+    // download the file
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename="' . basename($file) . '"');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    header('Content-Length: ' . filesize($file));
+    readfile($file);
+});
+
+$app->run();
+
