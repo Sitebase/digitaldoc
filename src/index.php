@@ -40,28 +40,13 @@ $app->get('/api/', function() use ($project) {
     ]);
 });
 
-$app->get('/api/generate/', function() {
-
-    $pdf = new Pdf('test.html');
-    $id = Uuid::uuid4()->toString();
-    $destination = getFile($id, 'pdf');
-
-    if(!$pdf->saveAs($destination)) {
-        return error($pdf->getError());
-    } else {
-        return new JsonResponse([
-            'id' => $id
-        ]);
-    }
-});
-
 /**
  * Generate PDF
  * Send some HTML source to this endpoint and it will convert it to
  * a PDF file
  * It returns a unique ID as result
  */
-$app->post('/api/test/', function(Request $request) {
+$app->post('/api/generate/', function(Request $request) {
 
     // save html source to local document
     $source = $request->getContent();

@@ -23,7 +23,7 @@ If you now go to `http://localhost:8000/api/` your should see some `json` that i
 Some commands to test the API without the need for a user interface:
 
 ```
-curl --data '<html><body>Hello <strong>world</strong></body></html>' http://localhost:8000/api/test/
+curl --data '<html><body>Hello <strong>world</strong></body></html>' http://localhost:8000/api/generate/
 ```
 
 ## Deploy

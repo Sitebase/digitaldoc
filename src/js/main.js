@@ -1,4 +1,5 @@
 var items = ['https://www.arduino.cc/new_home/assets/illu-arduino-UNO.png'];
+var api = document.location.href + 'api/';
 
 jQuery(document).ready(function($) {
 
@@ -11,8 +12,14 @@ jQuery(document).ready(function($) {
     });
 
     $("#generate").click(function() {
-        console.log('clicked generate');
-    })
+        var html = $("#items").html();
+        apiGenerate(html, function(id) {
+
+            // open download link in new tab
+            window.open(api + 'download/' + id, '_blank');
+
+        });
+    });
 
     $("body").click(function(e) {
         var trigger = e.target.dataset.trigger;
@@ -47,4 +54,14 @@ function renderItems(items) {
         elements = "<p>No images added yet</p>";
 
     $('#items').html(elements);
+}
+
+function apiGenerate(source, cb) {
+    $.ajax(api + 'generate/',{
+        'data': source,
+        'type': 'POST',
+        'processData': false
+    }).done(function(response) {
+        cb(response.id);
+    });
 }
